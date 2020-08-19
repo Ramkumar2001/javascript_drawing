@@ -32,14 +32,28 @@ function draworerase(e){
 var eraser = document.querySelector('#eraser');
 eraser.addEventListener('click', Erase);
 
-var pen = document.querySelector('#pen');
-pen.addEventListener('click', Pen);
+
 function Erase(e){
   context.strokeStyle = 'white';
   context.lineWidth = 20;
 }
 
-function Pen(e){
-  context.strokeStyle = 'black';
-  context.lineWidth = 2;
+
+var colors = document.querySelectorAll('.color');
+colors.forEach((color) => {
+  color.addEventListener('click', ChangeColor)
+});
+
+function ChangeColor(e){
+  if(e.target.id=='yellow')
+  context.strokeStyle='yellow';
+  if(e.target.id=='red')
+  context.strokeStyle='red';
+  if(e.target.id=='green')
+  context.strokeStyle='green';
+  if(e.target.id=='blue')
+  context.strokeStyle='blue';
+  if(e.target.id=='black')
+  context.strokeStyle='black';
+
 }
